@@ -2,6 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Calculator" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="culoarefundal">@drawable/darkmodeborder</item>
+        <item name="culoaretext">@android:color/holo_purple</item>
+        <item name ="culoarehint">@android:color/holo_purple</item>
+
+
     </style>
 </resources>

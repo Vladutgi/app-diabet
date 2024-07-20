@@ -7,29 +7,28 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.calculator.FirstFragment"
+        android:name="com.example.calculator.EcranPrincipal"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_ecranprincipal">
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+
         <action
             android:id="@+id/action_FirstFragment_to_CalculatorGlucide"
             app:destination="@id/CalculatorGlucide" />
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.calculator.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_FirstFragment_to_AdaugaProdus"
+            app:destination="@+id/AddProduct"/>
+        <action
+            android:id="@+id/action_FirstFragment_to_Lista"
+            app:destination="@+id/Lista"/>
+        <action
+            android:id="@+id/action_FirstFragment_to_CarbohidratiMancare"
+            app:destination="@+id/CarbohidratiMancare"/>
+
     </fragment>
+
+
+
 
 
     <fragment
@@ -40,5 +39,90 @@
 
     </fragment>
 
+
+    <fragment
+        android:id="@+id/AddProduct"
+        android:name="com.example.calculator.AddProduct"
+        android:label="Adauga Produs"
+        tools:layout="@layout/fragment_addproduct">
+        <action
+            android:id="@+id/action_AdaugaProdus_to_Lista"
+            app:destination="@+id/Lista"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/Lista"
+        android:name="com.example.calculator.Lista"
+        android:label="Lista produse"
+        tools:layout="@layout/fragment_listadb">
+
+        <action
+            android:id="@+id/action_Lista_to_CantitateMancare"
+            app:destination="@id/CantitateMancare" >
+
+            <argument
+                android:name="Nume"
+                app:argType="string" />
+            <argument
+                android:name="Gramaj"
+                app:argType="integer" />
+            <argument
+                android:name="Carbohidrati"
+                app:argType="float"/>
+
+        </action>
+
+
+        <action
+            android:id="@+id/action_Lista_to_AddProduct"
+            app:destination="@id/AddProduct" >
+
+            <argument
+                android:name="NumeProdVN"
+                app:argType="string" />
+            <argument
+                android:name="GramajVN"
+                app:argType="integer" />
+            <argument
+                android:name="CarbohidratiVN"
+                app:argType="float"/>
+
+        </action>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/CantitateMancare"
+        android:name="com.example.calculator.CantitateMancare"
+        android:label="Cantitate mancare"
+        tools:layout="@layout/fragment_cantitatemancare">
+        <action
+            android:id="@+id/action_CantitateMancare_to_CarbohidratiMancare"
+            app:destination="@id/CarbohidratiMancare" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CarbohidratiMancare"
+        android:name="com.example.calculator.CarbohidratiMancare"
+        android:label="Lista mancare"
+        tools:layout="@layout/fragment_carbohidratimancare">
+        <action
+            android:id="@+id/action_CarbohidratiMancare_to_CantitateMancare"
+            app:destination="@id/CantitateMancare" >
+
+            <argument
+                android:name="NumeMancare"
+                app:argType="string" />
+            <argument
+                android:name="GramajDeMancat"
+                app:argType="integer" />
+            <argument
+                android:name="CarbohidratiDeMancat"
+                app:argType="float"/>
+
+        </action>
+
+    </fragment>
 
 </navigation>
